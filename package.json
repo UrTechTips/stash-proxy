@@ -1,0 +1,10 @@
+{
+  "name": "stash-proxy",
+  "version": "1.0.0",
+  "description": "Proxy api for stash app. Visit https://github.com/UrTechTips/stash for more information on the application.",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
