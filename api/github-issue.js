@@ -11,14 +11,14 @@ export default async function handler(req, res) {
   const { title, body } = req.body;
 
   try {
-    const githubRes = await fetch(`https://api.github.com/repos/YOUR_USERNAME/Stash/issues`, {
+    const githubRes = await fetch(`https://api.github.com/repos/UrTechTips/Stash/issues`, {
       method: 'POST',
       headers: {
         'Accept': 'application/vnd.github+json',
         'Authorization': `Bearer ${process.env.GITHUB_PAT}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ title, body, labels: ['user-feedback'] })
+      body: JSON.stringify({ title, body, labels: ['bug'] })
     });
 
     if (!githubRes.ok) throw new Error('GitHub API failed');
@@ -27,6 +27,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ url: data.html_url });
 
   } catch (error) {
-    return res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ message: 'Internal Server Error', error });
   }
 }
